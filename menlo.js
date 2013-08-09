@@ -1,3 +1,7 @@
+// data massaged from the Menlo Park police log archive, here:
+// http://www.menloparkpolice.org/crime/media_archive.html
+// any mistakes are mine, please let me know!
+
 var menloData = [ {
   "time": "21:02",
   "event": "Mental Evaluation",
@@ -170,7 +174,7 @@ var menloData = [ {
   "id": "13-2076/130710038",
   "officer": "Detective Douglas",
   "location": "1300 blk Hollyburne Av, Menlo Park.",
-  "narrative": "Officer located vehicle that had been reported as embezzled to the Alameda Co SheriffÕs Office in June 2012.",
+  "narrative": "Officer located vehicle that had been reported as embezzled to the Alameda Co Sheriffï¿½s Office in June 2012.",
   "subject": [ {
     "name": "Richards, Latonya D",
     "dob": "061167",
@@ -467,7 +471,7 @@ var menloData = [ {
   "id": "13-2108/130712058",
   "officer": "Officer Russell",
   "location": "10 block Hermosa Pl, Menlo Park",
-  "narrative": "An unknown suspect fraudulently routed the victimÕs paychecks into a different bank account.",
+  "narrative": "An unknown suspect fraudulently routed the victimï¿½s paychecks into a different bank account.",
   "disposition": "Report taken."
 }, {
   "time": "17:53",
@@ -815,7 +819,7 @@ var menloData = [ {
   "event": "Suspicious Circumstances 13-2149/130715153",
   "officer": "Officer Tommei",
   "location": "1300 blk Hoover St, Mp.",
-  "narrative": "Report taken for package left at the rpÕs door by a known subject.",
+  "narrative": "Report taken for package left at the rpï¿½s door by a known subject.",
   "disposition": "Report Taken."
 }, {
   "time": "11:22",
@@ -839,7 +843,7 @@ var menloData = [ {
   "id": "13-2152/130716083",
   "officer": "CSO Sepulveda",
   "location": "00 blk Colemen Pl, Menlo Park.",
-  "narrative": "ONLINE REPORT Ð Victim reports unknown damaged the roof of their vehicle.",
+  "narrative": "ONLINE REPORT ï¿½ Victim reports unknown damaged the roof of their vehicle.",
   "disposition": "Report Taken."
 }, {
   "time": "14:56",
@@ -1093,7 +1097,7 @@ var menloData = [ {
   "id": "13-2181/130718099",
   "officer": "Officer Sepulveda",
   "location": "200 block San Mateo Dr, Menlo Park",
-  "narrative": "An unknown suspect keyed the victimÕs vehicle.",
+  "narrative": "An unknown suspect keyed the victimï¿½s vehicle.",
   "disposition": "Report Taken"
 }, {
   "time": "20:10",
@@ -1110,7 +1114,7 @@ var menloData = [ {
   "disposition": "Arrest"
 }, {
   "time": "22:12",
-  "event": "Vehicle Accident Ð Minor Injury",
+  "event": "Vehicle Accident ï¿½ Minor Injury",
   "id": "13-2183/130718111",
   "officer": "Officer Mackdanz",
   "location": "Willow Rd/Newbridge St, Menlo Park",
@@ -1151,7 +1155,7 @@ var menloData = [ {
   "id": "13-2188/130719048",
   "officer": "Officer Byars",
   "location": "800 block Curtis St, Menlo Park",
-  "narrative": "An unknown suspect made charges to the victimÕs credit card account.",
+  "narrative": "An unknown suspect made charges to the victimï¿½s credit card account.",
   "disposition": "Report Taken"
 }, {
   "time": "14:54",
@@ -1163,7 +1167,7 @@ var menloData = [ {
   "disposition": "Report Taken"
 }, {
   "time": "14:53",
-  "event": "Vehicle Accident Ð Minor Injury",
+  "event": "Vehicle Accident ï¿½ Minor Injury",
   "id": "13-2190/130719053",
   "officer": "Officer Douglas",
   "location": "Willow Rd/Clover Ln, Menlo Park",
@@ -1174,7 +1178,7 @@ var menloData = [ {
   "id": "13-2191/130720007",
   "officer": "Officer Russell",
   "location": "2400 block Sharon Rd, Menlo Park",
-  "narrative": "An unknown suspect made fraudulent charges using the victimÕs debit card.",
+  "narrative": "An unknown suspect made fraudulent charges using the victimï¿½s debit card.",
   "disposition": "Report Taken"
 }, {
   "time": "16:18",
@@ -1206,7 +1210,7 @@ var menloData = [ {
   "id": "13-2195/130720034",
   "officer": "Officer Igno",
   "location": "800 block El Camino Real, Menlo Park.",
-  "narrative": "An unknown suspect took the victimÕs wallet.",
+  "narrative": "An unknown suspect took the victimï¿½s wallet.",
   "disposition": "Report Taken"
 }, {
   "time": "17:34",
@@ -1214,7 +1218,7 @@ var menloData = [ {
   "id": "13-2196/130720047",
   "officer": "Officer Ferguson",
   "location": "800 block Santa Cruz Av, Menlo Park",
-  "narrative": "An unknown suspect took the victimÕs sunglasses.",
+  "narrative": "An unknown suspect took the victimï¿½s sunglasses.",
   "disposition": "Report Taken"
 }, {
   "time": "21:26",
@@ -1545,7 +1549,7 @@ var menloData = [ {
   "disposition": "Report Taken."
 }, {
   "time": "14:43",
-  "event": "Burglary Ð Residential",
+  "event": "Burglary ï¿½ Residential",
   "id": "13-2235/130723070",
   "officer": "Officer Wilson",
   "location": "1100 blk Henderson Av, Menlo Park.",
@@ -1600,7 +1604,7 @@ var menloData = [ {
   "event": "Drug Activity",
   "id": "13-2241/130723083",
   "officer": "Officer Del Mundo",
-  "location": "300 blk E Okeefe St Ð East Palo Alto",
+  "location": "300 blk E Okeefe St ï¿½ East Palo Alto",
   "subject": [ {
     "name": "Bustamante, Julio",
     "dob": "072919", 
@@ -2853,7 +2857,7 @@ var menloData = [ {
   "id": "13-2380/130806031",
   "officer": "Officer Solorzano",
   "location": "300 blk Sharon Park Dr, Menlo Park.",
-  "narrative": "Victim reports being bitten by his neighborÕs dog on 8/5.",
+  "narrative": "Victim reports being bitten by his neighborï¿½s dog on 8/5.",
   "disposition": "Report Taken."
 }, {
   "time": "22:00",
