@@ -20,7 +20,7 @@ div#main {
   text-align: left;
 }
 
-div#container {
+div.container {
   width: 100%; 
   height: 320px;
   border: 2px solid #000;
@@ -78,8 +78,9 @@ iframe {
 <p>I have in no way, shape or form "hacked" Atherton or its police department to produce this site. Every bit of it was gathered from public records put out by the Atherton PD. All posts from the <a target="_blank" href="http://athertonpolice.wordpress.com/">Atherton police Wordpress blog</a> were carefully massaged into <a href="log.js">one large JSON object</a>.  Incident categories and dispositions have been normalized where possible; corrections or properly-sourced additions will be <a href="https://github.com/kentbrew/profiling-atherton/issues">gratefully accepted</a>.  To see an archive of exactly what I was looking at, please download <a href="archive.zip">the original site</a>.</p>
 <h3>Try It Out</h3>
 <p>While it's fun to giggle at all those <a onclick="spc('SUSPICIOUS CIRCUMSTANCES');">suspicious circumstances</a>, <a onclick="spc('DISTURBANCE');">mysterious disturbances</a>, <a onclick="spc('CONSTRUCTION COMPLAINT');">construction complaints</a>, <a onclick="spc('PARKING PROBLEM');">parking hassles</a>, and <a onclick="spc('TOWN ORDINANCE VIOLATION');">miscellaneous town ordinance violations</a>, the data takes a sobering turn when we examine <a class="evil" onclick="vcv();">vehicle code violations</a> from February through July of 2013.</p>
-<div id="container">
-<table width="960" cellspacing="0" id="report"></table>
+
+<div class="container" >
+  <table width="960" cellspacing="0" id="report"></table>
 </div>
 
 <h3>Observations</h3>
@@ -99,7 +100,7 @@ iframe {
 </ul>
 
 <div class="itc">
-  <iframe width="600" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=map+of+atherton,+ca&amp;ie=UTF8&amp;gl=us&amp;t=h&amp;z=14&amp;ll=37.461327,-122.197743&amp;output=embed&amp;iwloc=near"></iframe>
+  <!-- <iframe width="600" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=map+of+atherton,+ca&amp;ie=UTF8&amp;gl=us&amp;t=h&amp;z=14&amp;ll=37.461327,-122.197743&amp;output=embed&amp;iwloc=near"></iframe> -->
 </div>
 
 <h3>Questions</h3>
@@ -116,14 +117,26 @@ iframe {
 </ul>
 
 <h3>Feedback?</h3>
-<p>I'm pretty findable. Catch me on <a href="http://twitter.com/kentbrew">Twitter</a>, <a href="http://github.com/kentbrew">GitHub</a>, on my awful little <a href="http://kentbrewster.com">home page</a>, or (if you must) on the <a href="http://linkedin.com/in/kentbrew">LinkedIn</a>. (Not looking for work, thanks.)</p>
 <p>I'd sincerely appreciate it if discussion wound up on <a href="https://news.ycombinator.com/item?id=6170915">Hacker News</a>.</p>
+<p>Want to talk? I'm pretty findable. Catch me on <a href="http://twitter.com/kentbrew">Twitter</a>, <a href="http://github.com/kentbrew">GitHub</a>, on my awful little <a href="http://kentbrewster.com">home page</a>, or (if you must) on the <a href="http://linkedin.com/in/kentbrew">LinkedIn</a>. (Not looking for work, thanks.)</p>
+
+
+<h3 id="menloHd">Following Up: Menlo Park, 7-7-2013 to 8-7-2013</h3>
+<p>Here's a month's worth of police blotter data from Menlo Park, the city directly to the south of Atherton.  This came from Menlo's <a href="http://www.menloparkpolice.org/crime/media_archive.html">Police Log Archive</a>, which are (sadly) only available as PDFs, and are pretty much locked down to the last 30 days.  For this report we're looking at any event containing the word "license."  Menlo Park has a lot of 14601s with confiscated vehicles, but please note the much wider-looking distribution of ethnicity.</p> 
+<div class="container" id="menloContainer">
+  <table width="960" cellspacing="0" id="menloTable"></table>
+</div>
+<p>I am informed by a city councilman that full data will be online shortly; when it shows up I will do my best to pull down the same date range that I'm using for Atherton.  Everything from the days I'm studying is <a href="menlo.js">available here</a> and definitely worth checking out; we've lived in the bordering community of East Palo Alto for the last five years and can say from experience that the Menlo Park police department is an exemplary force for good.</p>
+
+
 <script src="log.js"></script>
+<script src="menlo.js"></script>
 <script>
-var i, table, tr, td, d, t, c, item, makeCell, vcv, spc; 
+var i, table, tr, td, d, t, c, item, makeCell, vcv, spc, menloTable, menloReport; 
 
 d = document;
 table = d.getElementById('report');
+menloTable = d.getElementById('menloTable');
 
 vcv = function () {
   table.innerHTML = '<tr><td>#</td><td>Event ID</td><td>Time</td><td>Name</td><td>Residence</td><td>Cited For....</td><td>Location</td></tr>';
@@ -163,6 +176,28 @@ spc = function(str) {
   }    
 }
 
+menloReport = function(str) {
+  menloTable.innerHTML = '<tr><td>#</td><td>Event ID</td><td>Time</td><td>Name</td><td>Residence</td><td>Cited For....</td><td>Location</td></tr>';
+  c = 0;
+  for (i = 0; i < menloData.length; i = i + 1) {
+    
+    item = menloData[i];
+    if (item.event.match(/license/i) && item.subject) {
+      tr = d.createElement('TR');
+      var subj = item.subject[0];
+      c++;    
+      tr.appendChild(makeCell(c));
+      tr.appendChild(makeCell(item.id));
+      tr.appendChild(makeCell(item.time));
+      tr.appendChild(makeCell(subj.name));
+      tr.appendChild(makeCell(subj.oo));
+      tr.appendChild(makeCell(subj.narrative));
+      tr.appendChild(makeCell(item.location));
+      menloTable.appendChild(tr);
+    }
+  }    
+}
+
 makeCell = function (str) {
   if (!str) {
     str = 'n/a';
@@ -174,6 +209,7 @@ makeCell = function (str) {
 
 window.onload = function () {
   vcv();
+  menloReport();
 }
 
   
